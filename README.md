@@ -22,9 +22,10 @@ Current capability - 03/29/2018
 These are all done through the url
 
 * Create: use /webpad/save/padname to create a new pad called padname
-* Read: use /webpad/view/padname to read a pad
+* Read: use /webpad/padname to read a pad
 * Update: if you're using a pad, your changes are saved automatically
 * Delete: use /webpad/delete/padname to delete a pad
+* View all pads: use /webpad/view to display all pads in alphabetical order
 
 The whole page is editable, simply click and start writing.';
 
