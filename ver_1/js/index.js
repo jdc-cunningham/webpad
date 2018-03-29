@@ -35,21 +35,15 @@ let userWriting,
 
 pad.addEventListener('keyup', function() {
 
-    console.log('change');
-
     clearTimeout(userWriting);
 
     // start timeOut that waits 5 seconds before saving if there are changes
     userWriting = setTimeout(function() {
 
-        console.log('done writing attempting to save');
-
         let curData = pad.innerHTML;
         if (padData != curData) {
             // save
             postAjax('/webpad/php/update-entry.php', 'pad_name=' + padName + '&entry='+curData, function(data) {
-                
-                console.log('save attempted');
 
                 if (data == 'ok') {
                     postNotification('Saved');
