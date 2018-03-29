@@ -15,7 +15,7 @@ For my paritcular case this webapp is hosted on a Raspberry Pi and the PHP code 
 
 Current capability - 03/29/2018
 
-put gif here
+![webpad basic CRUD capability first version](http://url/to/img.png)
 
 ## Basic commands
 
