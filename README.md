@@ -15,7 +15,7 @@ For my paritcular case this webapp is hosted on a Raspberry Pi and the PHP code 
 
 Current capability - 03/29/2018
 
-![webpad basic CRUD capability first version](https://raw.githubusercontent.com/jdc-cunningham/webpad/master/webpad-basic-crud-demo.gif)
+![webpad basic CRUD capability first version](https://raw.githubusercontent.com/jdc-cunningham/webpad/master/webpad-basic-crud-demo-smaller.gif)
 
 ## Basic commands
 
