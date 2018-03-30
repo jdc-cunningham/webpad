@@ -11,7 +11,7 @@
 
     $look_up = explode('webpad/', $cur_link)[1];
 
-    $type = 'textarea';
+    $output_editable = true;
 
     // main functions
     function check_exist($pad_name) {
@@ -68,9 +68,10 @@
 
     function return_all_pads() {
 
-        global $dbh, $type;
-        
-        $type = 'div';
+        global $dbh, $output_editable;
+
+        // set non-editable output for links
+        $output_editable = false;
 
         // dumps all saved pad_name in alphabetical order
         $stmt = $dbh->prepare('SELECT pad_name FROM entries WHERE id > 0 ORDER BY pad_name ASC');
@@ -142,12 +143,12 @@
         $entry = return_all_pads();
     }
     else if ($look_up == '') {
-        $entry = 'Basic instructions: <br><br>';
-        $entry .= 'Create: use /webpad/save/padname to create a new pad called padname <br>';
-        $entry .= 'Read: use /webpad/view/padname to read a pad <br>';
-        $entry .= "Update: if you're using a pad, your changes are saved automatically <br>";
-        $entry .= 'Delete: use /webpad/delete/padname to delete a pad <br><br>';
-        $entry .= 'The whole page is editable, simply click and start writing.';
+        $entry = 'Basic instructions:' . "\n\n";
+        $entry .= 'Create: use /webpad/save/padname to create a new pad called padname' . "\n";
+        $entry .= 'Read: use /webpad/view/padname to read a pad' . "\n";
+        $entry .= "Update: if you're using a pad, your changes are saved automatically" . "\n";
+        $entry .= 'Delete: use /webpad/delete/padname to delete a pad' . "\n";
+        $entry .= 'The whole page is editable, simply click and start writing.' . "\n";
     }
     else {
 
@@ -171,6 +172,17 @@
             }
         }
     }
+
+    if ($output_editable) {
+        $pad_output = '<textarea id="editable-container" class="flex flt fdc">' .
+            $entry .
+        '</textarea>';
+    }
+    else {
+        $pad_output = '<div id="editable-container" class="flex flt fdc">' .
+            $entry .
+        '</div>';
+    }
     
 ?>
 <!DOCTYPE html>
@@ -186,9 +198,7 @@
     </head>
     <body>
         <div id="notifications" class="flex fcc"></div>
-        <<?php echo $type; ?> div id="editable-container" class="flex flt fdc">
-            <?php echo $entry; ?>
-        </<?php echo $type; ?>>
+        <?php echo $pad_output; ?>
         <script src="/webpad/js/index.js"></script>
     </body>
 </html>
