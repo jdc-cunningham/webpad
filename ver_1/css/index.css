@@ -22,3 +22,7 @@ body {
     overflow-y: auto;
     padding: 10px;
 }
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
