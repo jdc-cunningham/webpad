@@ -34,9 +34,9 @@
 
     function create_pad($pad_name) {
 
-        // if ($pad_name == 'css' || $pad_name == 'js' || $pad_name == 'php') {
-        //     return 'Failed: ' . $pad_name . ' is a reserved word';
-        // }
+        if ($pad_name == 'css' || $pad_name == 'js' || $pad_name == 'php') {
+            return 'Failed: ' . $pad_name . ' is a reserved directory';
+        }
 
         global $dbh;
 
