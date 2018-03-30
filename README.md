@@ -9,11 +9,11 @@ Allows you to create notes on the fly through the URL and can be accessed by any
 
 * Assumes you have a LAMP stack setup and can import the ```webpad.sql``` file.
 
-For my paritcular case this webapp is hosted on a Raspberry Pi and the PHP code is using PDO.
+For my particular case this webapp is hosted on a Raspberry Pi and the PHP code is using PDO.
 
 ## Demo
 
-Current capability - 03/29/2018
+Current capability - 03/29/2018, 4.5hrs to build mostly got stuck on mod_rewrite particularly the RewriteBase directory being wrong.
 
 ![webpad basic CRUD capability first version](https://raw.githubusercontent.com/jdc-cunningham/webpad/master/webpad-basic-crud-demo-smaller.gif)
 
