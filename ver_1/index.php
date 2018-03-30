@@ -11,7 +11,7 @@
 
     $look_up = explode('webpad/', $cur_link)[1];
 
-    $editable = 'contenteditable="true"';
+    $type = 'textarea';
 
     // main functions
     function check_exist($pad_name) {
@@ -68,7 +68,9 @@
 
     function return_all_pads() {
 
-        global $dbh, $editable;
+        global $dbh, $type;
+        
+        $type = 'div';
 
         // dumps all saved pad_name in alphabetical order
         $stmt = $dbh->prepare('SELECT pad_name FROM entries WHERE id > 0 ORDER BY pad_name ASC');
@@ -184,9 +186,9 @@
     </head>
     <body>
         <div id="notifications" class="flex fcc"></div>
-        <div id="editable-container" <?php echo $editable; ?> class="flex flt fdc">
+        <<?php echo $type; ?> div id="editable-container" class="flex flt fdc">
             <?php echo $entry; ?>
-        </div>
+        </<?php echo $type; ?>>
         <script src="/webpad/js/index.js"></script>
     </body>
 </html>
