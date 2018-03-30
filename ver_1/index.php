@@ -47,7 +47,7 @@
         // insert values
         $id = null;
         // $pad_name from parameter
-        $entry =  $date_time . '<div><br></div>' . 'Start writing...';// initiate with date stamp
+        $entry =  $date_time . "\n\n" . 'Start writing...';// initiate with date stamp
         $last_modified = $date_time;
 
         $stmt = $dbh->prepare('INSERT INTO entries VALUES (:id, :pad_name, :entry, :last_modified)');
