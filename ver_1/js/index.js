@@ -31,7 +31,7 @@ function postNotification(notification) {
 }
 
 let userWriting,
-    padData = pad.innerHTML;
+    padData = pad.value;
 
 pad.addEventListener('keyup', function() {
 
@@ -40,7 +40,7 @@ pad.addEventListener('keyup', function() {
     // start timeOut that waits 5 seconds before saving if there are changes
     userWriting = setTimeout(function() {
 
-        let curData = pad.innerHTML;
+        let curData = pad.value;
         if (padData != curData) {
             // save
             postAjax('/webpad/php/update-entry.php', 'pad_name=' + padName + '&entry='+curData, function(data) {
