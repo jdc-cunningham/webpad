@@ -11,6 +11,8 @@
 
     $look_up = explode('webpad/', $cur_link)[1];
 
+    $editable = 'contenteditable="true"';
+
     // main functions
     function check_exist($pad_name) {
 
@@ -66,7 +68,7 @@
 
     function return_all_pads() {
 
-        global $dbh;
+        global $dbh, $editable;
 
         // dumps all saved pad_name in alphabetical order
         $stmt = $dbh->prepare('SELECT pad_name FROM entries WHERE id > 0 ORDER BY pad_name ASC');
@@ -76,7 +78,7 @@
             if ($result_count > 0) {
                 $entry = '';
                 foreach($result as $row) {
-                    $entry .= $row['pad_name'] . '<br>';
+                    $entry .= '<a href="' . '/webpad/' . $row['pad_name'] . '">' . $row['pad_name'] . '</a>';
                 }
             }
             else {
@@ -182,7 +184,7 @@
     </head>
     <body>
         <div id="notifications" class="flex fcc"></div>
-        <div id="editable-container" contenteditable="true" class="flex flt fdc">
+        <div id="editable-container" <?php echo $editable; ?> class="flex flt fdc">
             <?php echo $entry; ?>
         </div>
         <script src="/webpad/js/index.js"></script>
