@@ -41,7 +41,7 @@ pad.addEventListener('keyup', function() {
     userWriting = setTimeout(function() {
 	    
 	// quick command to get a date time, contributed by /u/cutety from Reddit
-	keyupInput.value = this.value.replace(/!dt/g, "04-03-2018 10:48 PM");
+	pad.value = this.value.replace(/!dt/g, "04-03-2018 10:48 PM");
 
         let curData = pad.value;
         if (padData != curData) {
