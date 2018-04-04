@@ -33,16 +33,32 @@ function postNotification(notification) {
 let userWriting,
     padData = pad.value;
 
+function addZero(number) {
+    if (number < 10) {
+        return '0' + number;
+    }
+}
+
+function getFormattedDate() {
+    let date = new Date(),
+            hour = date.getHours(),
+        period = hour < 12 ? 'AM' : 'PM',
+        dateStr = (addZero(date.getMonth() + 1)) + "-" + addZero(date.getDate()) + "-" + date.getFullYear() + " " + addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + " " + period;
+
+    return dateStr;
+}
+
 pad.addEventListener('keyup', function() {
 
     clearTimeout(userWriting);
+	
+    // quick command to get a date time, contributed by /u/cutety from Reddit
+    
+    pad.value = this.value.replace(/!dt/g, getFormattedDate());
 
     // start timeOut that waits 5 seconds before saving if there are changes
     userWriting = setTimeout(function() {
 	    
-	// quick command to get a date time, contributed by /u/cutety from Reddit
-	pad.value = this.value.replace(/!dt/g, "04-03-2018 10:48 PM");
-
         let curData = pad.value;
         if (padData != curData) {
             // save
