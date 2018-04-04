@@ -29,6 +29,24 @@ These are all done through the url
 
 The whole page is editable, simply click and start writing.';
 
+## Note
+
+There is a .htaccess file in the repo, I can't see it I guess it's hidden or it's not here, I just tried to re-upload it in case.
+
+The content is simple though:
+```
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+    RewriteBase /webpad/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php [L]
+
+</IfModule>
+```
+The .htacccess goes in the base directory eg. /webpad/
+
 ## Future features
 
 * Self timestamping on no-change based on webworker
