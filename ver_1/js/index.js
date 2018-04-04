@@ -61,3 +61,8 @@ pad.addEventListener('keyup', function() {
     }, 3000);
 
 });
+
+// quick command to get a date time, contributed by /u/cutety from Reddit
+pad.addEventListener("keyup", function(evnt) {
+	keyupInput.value = this.value.replace(/!dt/g, "04-03-2018 10:48 PM");
+}, false);
