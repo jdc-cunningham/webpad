@@ -46,7 +46,7 @@ function getFormattedDate() {
     let date = new Date(),
             hour = date.getHours(),
         period = hour < 12 ? 'AM' : 'PM',
-        dateStr = (addZero(date.getMonth() + 1)) + "-" + addZero(date.getDate()) + "-" + date.getFullYear() + " " + addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + " " + period;
+        dateStr = (addZero(date.getMonth() + 1)) + "-" + addZero(date.getDate()) + "-" + date.getFullYear() + " " + addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + " " + period + "\r\n\r\n";
 
     return dateStr;
 }
@@ -56,8 +56,11 @@ pad.addEventListener('keyup', function() {
     clearTimeout(userWriting);
 	
     // quick command to get a date time, contributed by /u/cutety from Reddit
-    
-    pad.value = this.value.replace(/!dt/g, getFormattedDate());
+    if (this.value.indexOf('!dt') !== -1) {
+        let curStart = pad.selectionStart; // this is for making sure the cursor goes back to the line it replaced, actually after with "\r\n"
+        pad.value = this.value.replace(/!dt/g, getFormattedDate());
+        pad.selectionEnd = curStart + 18; // 18 is the length of the date time string
+    }
 
     // start timeOut that waits 5 seconds before saving if there are changes
     userWriting = setTimeout(function() {
