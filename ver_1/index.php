@@ -126,7 +126,7 @@
         }
         else if ($command == 'delete') {
             // delete preceding pad_name assuming it exists
-            $entry = 'Are you sure you want to delete ' . $pad_name . '? To delete use \really-delete\pad_name';
+            $entry = 'Are you sure you want to delete ' . $pad_name . '? To delete use /really-delete/pad_name';
         }
         else if ($command == 'really-delete') {
             $stmt = $dbh->prepare('DELETE FROM entries WHERE pad_name=:pad_name');
