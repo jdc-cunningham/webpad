@@ -58,5 +58,5 @@ Yeah the code(PHP) is pretty bad, need to look into using classes/OOP. I literal
 
 ## Updates
 
-04-08-2018 I built a website for this, qnote.me
+04-08-2018 I built a website for this, https://qnote.me
 I'll continue development on that site. I'll see about migrating them here the changes but probably won't happen.
