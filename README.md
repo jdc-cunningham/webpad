@@ -57,3 +57,6 @@ The .htacccess goes in the base directory eg. /webpad/
 Yeah the code(PHP) is pretty bad, need to look into using classes/OOP. I literally just wanted to make it work.
 
 ## Updates
+
+04-08-2018 I built a website for this, qnote.me
+I'll continue development on that site. I'll see about migrating them here the changes but probably won't happen.
