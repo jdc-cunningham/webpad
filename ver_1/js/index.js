@@ -83,6 +83,6 @@ pad.addEventListener('keyup', function() {
             });
         }
 
-    }, 3000);
+    }, 1000);
 
 });
