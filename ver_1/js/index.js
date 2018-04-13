@@ -51,14 +51,14 @@ function getFormattedDate() {
     return dateStr;
 }
 
-pad.addEventListener('keyup', function() {
+function checkForChange(padContent) {
 
     clearTimeout(userWriting);
 	
     // quick command to get a date time, contributed by /u/cutety from Reddit
-    if (this.value.indexOf('!dt') !== -1) {
+    if (padContent.value.indexOf('!dt') !== -1) {
         let curStart = pad.selectionStart; // this is for making sure the cursor goes back to the line it replaced, actually after with "\r\n"
-        pad.value = this.value.replace(/!dt/g, getFormattedDate());
+        pad.value = padContent.value.replace(/!dt/g, getFormattedDate());
         pad.selectionEnd = curStart + 18; // 18 is the length of the date time string
     }
 
@@ -84,5 +84,15 @@ pad.addEventListener('keyup', function() {
         }
 
     }, 1000);
+	
+}
 
+pad.addEventListener('keyup', function() {
+    let padContent = this;
+    checkForChange(padContent);
+});
+
+pad.addEventListener('paste', function() {
+    let padContent = this;
+    checkForChange(padContent);
 });
