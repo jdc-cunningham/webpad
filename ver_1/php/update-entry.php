@@ -11,6 +11,8 @@
         // get data
         $pad_name = $_POST['pad_name'];
         $entry = $_POST['entry'];
+        
+        $entry = str_replace('|amp|', '&', $entry);
 
         // return array
         $status = [];
