@@ -51,6 +51,10 @@ function getFormattedDate() {
     return dateStr;
 }
 
+function replaceAmpersands(str) {
+    return str.replace(/&/g, '|amp|');	
+}
+
 function checkForChange(padContent) {
 
     clearTimeout(userWriting);
@@ -68,7 +72,7 @@ function checkForChange(padContent) {
         let curData = pad.value;
         if (padData != curData) {
             // save
-            postAjax('/webpad/php/update-entry.php', 'pad_name=' + padName + '&entry='+curData, function(data) {
+            postAjax('/webpad/php/update-entry.php', 'pad_name=' + padName + '&entry=' + replaceAmpersands(curData), function(data) {
 
                 if (data == 'ok') {
                     postNotification('Saved');
